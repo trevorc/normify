@@ -1,0 +1,10 @@
+Name: normify
+Version: 1.0
+License: BSD3
+Cabal-Version: >= 1.2
+Build-Type: Simple
+
+Executable normify
+  Main-is: Main.hs
+  Build-Depends: base, containers, directory, filepath, text, text-icu
+  GHC-Options: -Wall -O2
