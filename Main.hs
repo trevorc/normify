@@ -9,6 +9,7 @@ import Data.Foldable (Foldable(), all)
 import System.Directory (doesDirectoryExist, getDirectoryContents,
                          renameDirectory, renameFile)
 import System.Environment (getArgs)
+import System.FilePath ((</>))
 import System.IO (hFlush, stdout)
 import Text.Printf (printf)
 
@@ -65,6 +66,7 @@ canonicalizeDirectory mode dir = do
                flattenMap .
                normalizations mode .
                map T.pack .
+               map (dir </>) .
                filter (`notElem` [".", ".."]) <$>
                getDirectoryContents dir
   ; continue <- if null renames
